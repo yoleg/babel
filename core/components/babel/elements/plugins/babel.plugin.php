@@ -38,6 +38,11 @@
  * @var MODx $modx
  * @var array $scriptProperties
  * @var Babel $babel
+ * @var modResource $resource
+ * @var modResource $unlinkedResource
+ * @var modResource $newResource
+ * @var modResource $targetResource
+ * @var modContext $context
  */
 $babel = $modx->getService('babel','Babel',$modx->getOption('babel.core_path',null,$modx->getOption('core_path').'components/babel/').'model/babel/',$scriptProperties);
 
@@ -115,7 +120,7 @@ case 'OnDocFormPrerender':
 
                 /* copy values of synchronized TVs to target resource */
                 if(isset($_POST['babel-link-copy-tvs']) && intval($_POST['babel-link-copy-tvs']) == 1) {
-                    $babel->sychronizeTvs($resource->get('id'));
+                    $babel->synchronizeTvs($resource->get('id'));
                 }
             }
 
@@ -179,7 +184,7 @@ case 'OnDocFormPrerender':
         } catch (Exception $exception) {
             $errorKey = $exception->getMessage();
             if($errorKey) {
-                if(!is_array($errorParameter)) {
+                if(!isset($errorParameter) || !is_array($errorParameter)) {
                     $errorParameter = array();
                 }
                 $errorMessage = '<div id="babel-error">'.$modx->lexicon($errorKey,$errorParameter).'</div>';
@@ -266,7 +271,27 @@ case 'OnDocFormSave':
         $babel->initBabelTv($resource);
         break;
     }
-    $babel->sychronizeTvs($resource->get('id'));
+    $babel->synchronizeTvs($resource->get('id'), true, true);
+    break;
+
+// todo: add to _build
+case 'OnResourceBeforeSort':
+    $nodes = $modx->event->params['nodes'];
+    if(!$nodes) {
+        $modx->log(modX::LOG_LEVEL_ERROR, 'No nodes provided for OnResourceBeforeSort event');
+        break;
+    }
+    $babel->OnResourceBeforeSort($nodes, $modx->event->params['contexts']);
+    break;
+
+case 'OnResourceSort':
+    /** @var array $resources_affected Array of modResource  */
+    $resources_affected = $modx->event->params['nodesAffected'];
+    if(!$resources_affected) {
+        $modx->log(modX::LOG_LEVEL_ERROR, 'No resources provided for OnResourceSort event');
+        break;
+    }
+    $babel->OnResourceSort($resources_affected);
     break;
 
 case 'OnEmptyTrash':
