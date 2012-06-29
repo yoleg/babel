@@ -28,10 +28,10 @@
  * @package babel
  */
 Ext.onReady(function() {
-	Ext.select('div.babel-language:has(.babel-language-layer)').on('mouseenter', function(){
-		Ext.get(this).child('.babel-language-layer').show();
-	})
-	.on('mouseleave', function(){
-		Ext.get(this).child('.babel-language-layer').hide();
-	});
+    Ext.select('div.babel-language:has(.babel-language-layer)').on('mouseenter', function(){
+        Ext.get(this).child('.babel-language-layer').show();
+    })
+    .on('mouseleave', function(){
+        Ext.get(this).child('.babel-language-layer').hide();
+    });
 });

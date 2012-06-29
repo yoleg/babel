@@ -38,7 +38,7 @@ $properties = array(
         'value' => '',
         'lexicon' => 'babel:properties',
     ),
-	array(
+    array(
         'name' => 'tpl',
         'desc' => 'babellinks.tpl',
         'type' => 'textfield',

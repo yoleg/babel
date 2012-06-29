@@ -33,15 +33,15 @@
 $contexts = $modx->getCollection('modContext');
 $contextKeys = array();
 foreach($contexts as $context) {
-	$contextKey = $context->get('key');
-	if($contextKey != 'mgr') {
-		$contextKeys[] = $contextKey;
-	}
+    $contextKey = $context->get('key');
+    if($contextKey != 'mgr') {
+        $contextKeys[] = $contextKey;
+    }
 }
 $values = array(
     'contextKeys' => implode(',',$contextKeys),
     'babelTvName' => 'babelLanguageLinks',
-	'syncTvs' => '',
+    'syncTvs' => '',
 );
 switch ($options[xPDOTransport::PACKAGE_ACTION]) {
     case xPDOTransport::ACTION_INSTALL:

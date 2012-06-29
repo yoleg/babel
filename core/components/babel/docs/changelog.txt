@@ -59,9 +59,9 @@ Babel 2.1.0-beta
   - All languages (contexts) of current group are displayed even if there are no links defined.
   - If there is no link to a language it's background is light gray.
   - When mouseovering a language link a layer is displayed where you can
-	- create a translation (new resource) if no link is defined.
-  	- manually link the translation to an existing resource if no link is defined.
-  	- remove a link if a link is defined.
+    - create a translation (new resource) if no link is defined.
+      - manually link the translation to an existing resource if no link is defined.
+      - remove a link if a link is defined.
   - Added validation to keep the babel TV clear
   - Added several keys to the lexicon: French translation still pending.
 
@@ -73,15 +73,15 @@ Babel 2.0.0-beta
 - Added build script
 - Added multilanguage support for the extra itself
 - Easier but more powerfull configuration:
-	No need to specify names/caption of context anymore (caption is derived from the contexts' cultureKey).
-	3 system settings which can be set during package installation.
-	* babel.contextKeys:
-		Define which context should be used to link translation.
-		Defining several groups of context is supported, too (see readme.txt).
-	* babel.babelTvName:
-		Name of TV in which links between translated resources are keept.
-	* babel.syncTvs:
-		IDs of TVs which should be synchronized by Babel.
+    No need to specify names/caption of context anymore (caption is derived from the contexts' cultureKey).
+    3 system settings which can be set during package installation.
+    * babel.contextKeys:
+        Define which context should be used to link translation.
+        Defining several groups of context is supported, too (see readme.txt).
+    * babel.babelTvName:
+        Name of TV in which links between translated resources are keept.
+    * babel.syncTvs:
+        IDs of TVs which should be synchronized by Babel.
 - Moved CSS into asset folder
 - Moved codebase to https://github.com/mikrobi/babel/
 - Plugin listens to OnEmptyTrash event to remove links to non-existing resources stored in the Babel TV

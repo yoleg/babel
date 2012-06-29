@@ -46,9 +46,9 @@ $root = dirname(dirname(__FILE__)).'/';
 $sources = array(
     'root' => $root,
     'build' => $root . '_build/',
-	'resolvers' => $root . '_build/resolvers/',
+    'resolvers' => $root . '_build/resolvers/',
     'data' => $root . '_build/data/',
-	'events' => $root . '_build/data/events/',
+    'events' => $root . '_build/data/events/',
     'chunks' => $root.'core/components/'.PKG_NAME_LOWER.'/elements/chunks/',
     'snippets' => $root.'core/components/'.PKG_NAME_LOWER.'/elements/snippets/',
     'plugins' => $root.'core/components/'.PKG_NAME_LOWER.'/elements/plugins/',
@@ -165,7 +165,7 @@ $builder->putVehicle($vehicle);
 /* now pack in the license file, readme and setup options */
 $builder->setPackageAttributes(array(
     'license' => file_get_contents($sources['docs'] . 'license.txt'),
-	'changelog' => file_get_contents($sources['docs'] . 'changelog.txt'),
+    'changelog' => file_get_contents($sources['docs'] . 'changelog.txt'),
     'readme' => file_get_contents($sources['docs'] . 'readme.txt'),
     'setup-options' => array(
         'source' => $sources['build'].'setup.options.php',

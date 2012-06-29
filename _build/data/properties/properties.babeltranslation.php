@@ -38,7 +38,7 @@ $properties = array(
         'value' => '',
         'lexicon' => 'babel:properties',
     ),
-	array(
+    array(
         'name' => 'contextKey',
         'desc' => 'babeltranslation.contextKey',
         'type' => 'textfield',
